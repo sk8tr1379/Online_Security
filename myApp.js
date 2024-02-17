@@ -62,4 +62,4 @@ app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
 });
 app.use(helmet.hidePoweredBy());
-helmet.frameguard({action; 'deny'});
+app.use(helmet.frameguard({action: 'deny'});
