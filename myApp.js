@@ -50,8 +50,8 @@ const helmet = require('helmet');
 
 
 module.exports = app;
-app.use(helmet.noSniff());
 const api = require('./server.js');
+app.use(helmet.noSniff());
 app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use(helmet.frameguard({action: 'deny'}));
