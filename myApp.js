@@ -59,12 +59,11 @@ app.use(helmet.xssFilter());
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-let port = process.env.PORT || 3000;
 app.use(helmet.noSniff());
+let port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
 });
 app.use(helmet.hidePoweredBy());
-app.use(helmet.noSniff());
 
 
