@@ -52,7 +52,6 @@ const helmet = require('helmet');
 module.exports = app;
 const api = require('./server.js');
 app.use(express.static('public'));
-app.use(helmet.frameguard({action: 'deny'}));
 app.disable('strict-transport-security');
 app.use('/_api', api);
 app.get("/", function (request, response) {
@@ -63,3 +62,4 @@ app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
 });
 app.use(helmet.hidePoweredBy());
+app.use(helmet.frameguard({action: 'deny'}));
