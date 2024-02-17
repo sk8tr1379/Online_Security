@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 
-
+app.use(helmet.frameguard({action: 'deny'}));
 
 
 
@@ -61,6 +61,5 @@ let port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
 });
-app.use(helmet.frameguard({action: 'deny'}));
 app.use(helmet.hidePoweredBy());
 
