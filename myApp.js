@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 
-app.use(helmet.frameguard({action: 'deny'}));
+
 
 
 
@@ -51,6 +51,7 @@ app.use(helmet.frameguard({action: 'deny'}));
 
 module.exports = app;
 const api = require('./server.js');
+app.use(helmet.frameguard({action: 'deny'}));
 app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use('/_api', api);
