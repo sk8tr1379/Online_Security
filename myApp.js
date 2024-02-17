@@ -63,4 +63,5 @@ app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
 });
 app.use(helmet.hidePoweredBy());
+app.use(helmet.xssFilter());
 
