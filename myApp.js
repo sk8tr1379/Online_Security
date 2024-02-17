@@ -52,9 +52,9 @@ const helmet = require('helmet');
 module.exports = app;
 const api = require('./server.js');
 app.use(express.static('public'));
+app.use(helmet.frameguard({action: 'deny'}));
 app.disable('strict-transport-security');
 app.use('/_api', api);
-app.use(helmet.frameguard({action: 'DENY'}));
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
