@@ -51,9 +51,9 @@ const helmet = require('helmet');
 
 module.exports = app;
 const api = require('./server.js');
-app.use(helmet.noSniff());
 app.use(express.static('public'));
 app.disable('strict-transport-security');
+app.use(helmet.noSniff());
 app.use(helmet.frameguard({action: 'deny'}));
 app.use('/_api', api);
 app.use(helmet.xssFilter());
