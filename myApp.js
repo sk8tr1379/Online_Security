@@ -56,9 +56,9 @@ app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use(helmet.noSniff());
 app.use(helmet.frameguard({action: 'deny'}));
+app.use(helmet.ieNoOpen());
 var ninetyDaysInSeconds = 90*24*60*60;
 app.use(helmet.hsts({ maxAge: ninetyDaysInSeconds, force: true }));
-app.use(helmet.ieNoOpen());
 app.use('/_api', api);
 app.use(helmet.xssFilter());
 app.get("/", function (request, response) {
